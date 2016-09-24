@@ -3,6 +3,7 @@
 
 import random
 import time
+from copy import copy
 # import custom modules above
 
 
@@ -12,8 +13,7 @@ def bubble_sort(lst1):
     :return: 排序后的列表
     """
     # lst = deepcopy(lst1)
-    # lst = copy(lst1)
-    lst = lst1[:]
+    lst = copy(lst1)
     for i in range(len(lst)):
         for j in range(i+1, len(lst)):
             if lst[j] < lst[i]:
