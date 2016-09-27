@@ -118,6 +118,7 @@
 		name of m1:caining
 		id of m2:2216736122192
 		name of m2:shabi
+
 > 分析：
 
 1.	两种方式分别创建的m1和m2对象id相等，说明是单一实例
