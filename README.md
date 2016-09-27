@@ -88,6 +88,7 @@
 ### 两种方式对比 ###
 > 我们设计了main方法来执行这两个脚本
 
+
 	if __name__ == '__main__':
 	    m1 = MyClass('caining')
 	    print(
