@@ -88,20 +88,19 @@
 ### 两种方式对比 ###
 > 我们设计了main方法来执行这两个脚本
 
-
-	if __name__ == '__main__':
-	    m1 = MyClass('caining')
-	    print(
-	        'id of m1:%s' % id(m1),
-	        'name of m1:%s' % m1.name,
-	        sep='\n'
-	    )
-	    m2 = MyClass('shabi')
-	    print(
-	        'id of m2:%s' % id(m2),
-	        'name of m2:%s' % m2.name,
-	        sep='\n'
-	    )
+	    if __name__ == '__main__':
+	        m1 = MyClass('caining')
+	        print(
+	            'id of m1:%s' % id(m1),
+	            'name of m1:%s' % m1.name,
+	            sep='\n'
+	        )
+	        m2 = MyClass('shabi')
+	        print(
+	            'id of m2:%s' % id(m2),
+	            'name of m2:%s' % m2.name,
+	            sep='\n'
+	        )
 > 执行结果分别如下：
 
 1.	装饰器方式
