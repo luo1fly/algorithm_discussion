@@ -47,6 +47,7 @@
 	    return lst
 ## 设计模式之单例模式 ##
 > 下面介绍两种实现方式，装饰器和类继承
+
 ### 装饰器实现 ###
 > 之前装饰器都是用来装饰函数，这次用来装饰类，所以这种方式其实也是一种工厂模式的体现，下面是代码实现
 	
@@ -69,19 +70,20 @@
 2.	判断实例是否存在，不存在则创建一个实例，存在则直接返回已存在的，这样保证了当前进程管理的内存中一个类只有一个对象实例
 3.	装饰器的优势在于不需要对类进行修改，而把对单个实例的控制放在外部函数中，这种方式相对灵活，对程序的改动量较小；另外由于是通过外部函数返回了类的实例，也是一种工厂模式的运用，这种方法也可以称为工厂函数实现单例模式
 4.	这种方式就没有局限性吗，也不是，后面我们再来分析
+
 ### 类继承实现 ###
 > 先来复习一下类实例化的过程，\__init\__方法执行会先对对象属性进行赋值，再调用\__new\__方法创建出这个对象，这个过程要搞清楚，然后我们来看代码实现
 
-	class Singleton(object):
-	    def __new__(cls, *args, **kwargs):
-	        if not hasattr(cls, '_instance'):
-	            cls._instance = super(Singleton, cls).__new__(cls)
-	        return cls._instance
-	
-	
-	class MyClass(Singleton):
-	    def __init__(self, name):
-	        self.name = name
+	    class Singleton(object):
+	        def __new__(cls, *args, **kwargs):
+	            if not hasattr(cls, '_instance'):
+	                cls._instance = super(Singleton, cls).__new__(cls)
+	            return cls._instance
+	    
+	    
+	    class MyClass(Singleton):
+	        def __init__(self, name):
+	            self.name = name
 1.	写一个父类Singleton，重写其\__new\__方法，加一层判断如果类没有实例则创建一个，否则返回已有实例
 2.	子类直接继承父类Singleton即可，子类并没有显式的重写\__new__方法，所以直接调用父类的，根据广度优先法则，MyClass类实例化时调用的是Singleton改写过后的\__new\__方法，所以他只会创建一个实例
 3.	我们来分析一下这种方式的特点，对原类有细微改动继承了Singleton类，要对类实例化过程有一定的认知度
